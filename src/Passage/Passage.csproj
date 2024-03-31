@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageId>Passage.NET</PackageId>
+        <Authors>Zsolt Kovacs</Authors>
+        <Description>Passage Authentication Middleware</Description>
+        <PackageTags>passage;auth;passkey;passwordless;asp.net</PackageTags>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageDescription>Passage Authentication Middleware</PackageDescription>
+        <PackageProjectUrl>https://passage.id/</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/zskovacs/passage-dotnet.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Copyright>Copyright © 2024</Copyright>
+        <AssemblyName>Passage.Net</AssemblyName>
+    </PropertyGroup>
+
+</Project>
