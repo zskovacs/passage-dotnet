@@ -1,5 +1,4 @@
-﻿using Passage.Configuration;
-using Passage.Exceptions;
+﻿using System.Reflection;
 
 namespace Passage;
 
@@ -9,7 +8,7 @@ namespace Passage;
 public class Passage : IPassage
 {
     private readonly string _appId;
-    private readonly string _appKey = string.Empty;
+    private readonly string _apiKey = string.Empty;
     private readonly AuthStrategy _authStrategy;
     private JsonWebKeySet _jwks;
 
@@ -27,8 +26,8 @@ public class Passage : IPassage
         }
         _appId = config.AppId;
         
-        if (!string.IsNullOrEmpty(config?.AppKey)) {
-            _appKey = config.AppKey;
+        if (!string.IsNullOrEmpty(config?.ApiKey)) {
+            _apiKey = config.ApiKey;
         }
 
         _authStrategy = config.AuthStrategy;
@@ -68,7 +67,41 @@ public class Passage : IPassage
             throw new PassageException("JWT verification failed", ex);
         }
     }
+    
+    /// <summary>
+    /// Get App Info about an app
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns>Passage App object</returns>
+    /// <exception cref="PassageException"></exception>
+    public async Task<App> GetApp(CancellationToken cancellationToken = default)
+    {
+        if (string.IsNullOrEmpty(_apiKey))
+        {
+            throw new PassageException("A Passage ApiKey is required. Please include {ApiKey: YOUR_API_KEY}.");
+        }
+        
+        try
+        {
+            var client = new PassageClient(GetHttpClient());
+            var result = await client.GetAppAsync(_appId, cancellationToken);
+            return result.App;
+        }
+        catch (ApiException ex)
+        {
+            throw new PassageException("Cannot get APP info", ex);
+        }
+    }
 
+    private HttpClient GetHttpClient()
+    {
+        var httpClient = new HttpClient();
+        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
+        httpClient.DefaultRequestHeaders.Add("Passage-Version", Assembly.GetExecutingAssembly().GetName().Version.ToString());
+        
+        return httpClient;
+    }
+    
     private static string GetKidFromJwtToken(string token)
     {
         var handler = new JwtSecurityTokenHandler();
