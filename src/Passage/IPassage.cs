@@ -1,4 +1,4 @@
-﻿namespace Passage;
+namespace Passage;
 
 /// <summary>
 /// Interface for Passage class
