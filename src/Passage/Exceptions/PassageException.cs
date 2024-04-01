@@ -15,6 +15,7 @@ public class PassageException : Exception
     /// </summary>
     public string Error { get; set; }
 
+
     /// <summary>
     /// Constructor
     /// </summary>

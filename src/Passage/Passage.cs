@@ -1,4 +1,4 @@
-﻿namespace Passage;
+namespace Passage;
 
 /// <summary>
 /// Passage class is used for validating authentication tokens using JWT.
