@@ -9,3 +9,16 @@ Install this package using nuget.
 ```dotnetcli
 dotnet add pacakge Passage.NET
 ```
+
+## Validate JWT
+You need to provide Passage with your App ID in order to verify the JWTs.
+```csharp
+var config = new PassageConfig()
+{
+    AppId = "YOUR_APP_ID"
+}
+
+var passage = new Passage(config);
+
+var subject = await passage.ValidateToken("JWT_TO_VALIDATE");
+```
