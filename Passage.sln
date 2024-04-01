@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{4A3643
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passage.Tests", "test\Passage.Tests\Passage.Tests.csproj", "{963CDA10-32EE-4CB6-9FEB-6BE5575EECC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,8 +26,13 @@ Global
 		{4B5A8468-EFA5-41C2-BB73-8C4FDF791BA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B5A8468-EFA5-41C2-BB73-8C4FDF791BA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B5A8468-EFA5-41C2-BB73-8C4FDF791BA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{963CDA10-32EE-4CB6-9FEB-6BE5575EECC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{963CDA10-32EE-4CB6-9FEB-6BE5575EECC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{963CDA10-32EE-4CB6-9FEB-6BE5575EECC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{963CDA10-32EE-4CB6-9FEB-6BE5575EECC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4B5A8468-EFA5-41C2-BB73-8C4FDF791BA7} = {7555300C-0BB0-4CF2-97EB-27C6C6896ADB}
+		{963CDA10-32EE-4CB6-9FEB-6BE5575EECC2} = {065F6F85-142A-4112-BB85-52B23C12EE62}
 	EndGlobalSection
 EndGlobal
