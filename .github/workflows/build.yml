@@ -31,7 +31,7 @@ jobs:
           include-prerelease: true
 
       - name: Restore dependencies
-        run: dotnet restore ConnectSdk.sln
+        run: dotnet restore Passage.sln
 
       - name: Build
         run: dotnet build Passage.sln --no-restore -c Release

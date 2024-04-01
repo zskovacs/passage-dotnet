@@ -1,6 +1,3 @@
-﻿using Passage.Configuration;
-using Passage.Exceptions;
-
 namespace Passage;
 
 /// <summary>
@@ -9,10 +6,9 @@ namespace Passage;
 public class Passage : IPassage
 {
     private readonly string _appId;
-    private readonly string _appKey = string.Empty;
+    private readonly string _apiKey = string.Empty;
     private readonly AuthStrategy _authStrategy;
     private JsonWebKeySet _jwks;
-
 
     /// <summary>
     /// Passage class constructor
@@ -27,8 +23,8 @@ public class Passage : IPassage
         }
         _appId = config.AppId;
         
-        if (!string.IsNullOrEmpty(config?.AppKey)) {
-            _appKey = config.AppKey;
+        if (!string.IsNullOrEmpty(config?.ApiKey)) {
+            _apiKey = config.ApiKey;
         }
 
         _authStrategy = config.AuthStrategy;
@@ -68,7 +64,217 @@ public class Passage : IPassage
             throw new PassageException("JWT verification failed", ex);
         }
     }
+    
+    /// <summary>
+    /// Get information about an application.
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns>A Passage <see cref="App"/> object</returns>
+    /// <exception cref="PassageException"></exception>
+    public async Task<AppInfo> GetApp(CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var client = new PassageClient(GetHttpClient());
+            var result = await client.GetAppAsync(_appId, cancellationToken);
+            return result.App;
+        }
+        catch (ApiException ex)
+        {
+            throw new PassageException("Cannot get APP information", ex);
+        }
+        catch (PassageException)
+        {
+            throw;
+        }
+        catch (Exception ex)
+        {
+            throw new PassageException("Cannot create User information", ex);
+        }
+    }
+    
+    /// <summary>
+    /// Get user information, if the user exists. This endpoint can be used to determine whether a user has an existing account and if they should login or register.
+    /// </summary>
+    /// <param name="userId">User Id</param>
+    /// <param name="cancellationToken"></param>
+    /// <returns>A Passage <see cref="UserInfo"/> object</returns>
+    /// <exception cref="PassageException"></exception>
+    public async Task<UserInfo> GetUser(string userId, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var client = new PassageClient(GetHttpClient());
+            var result = await client.GetUserAsync(_appId, userId, cancellationToken);
+            return result.User;
+        }
+        catch (ApiException ex)
+        {
+            throw new PassageException("Cannot get User information", ex);
+        }
+        catch (PassageException)
+        {
+            throw;
+        }
+        catch (Exception ex)
+        {
+            throw new PassageException("Cannot create User information", ex);
+        }
+    }
+    
+    /// <summary>
+    /// Get user information, if the user exists. This endpoint can be used to determine whether a user has an existing account and if they should login or register.
+    /// </summary>
+    /// <param name="identifier">Email or Phone Number</param>
+    /// <param name="cancellationToken"></param>
+    /// <returns>A Passage <see cref="UserInfo"/> object</returns>
+    /// <exception cref="PassageException"></exception>
+    public async Task<UserInfo> GetUserByIdentifier(string identifier, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var client = new PassageClient(GetHttpClient());
+            var result = await client.ListPaginatedUsersAsync(
+                page: null,
+                limit: 1,
+                created_before: null,
+                order_by: null,
+                identifier: identifier,
+                id: null,
+                login_count: null,
+                status: null,
+                created_at: null,
+                updated_at: null,
+                last_login_at: null,
+                app_id: _appId,
+                cancellationToken: cancellationToken);
 
+            if (result.Users.Count == 1)
+            {
+                return await GetUser(result.Users.First().Id, cancellationToken);
+            }
+            
+            throw new PassageException("Could not find user with that identifier.");
+            
+        }
+        catch (ApiException ex)
+        {
+            throw new PassageException("Cannot get User information", ex);
+        }
+        catch (PassageException)
+        {
+            throw;
+        }
+        catch (Exception ex)
+        {
+            throw new PassageException("Cannot create User information", ex);
+        }
+    }
+    
+
+    /// <summary>
+    /// Create a user
+    /// </summary>
+    /// <param name="createUserRequest">Payload to create the user</param>
+    /// <param name="cancellationToken"></param>
+    /// <returns>A Passage <see cref="UserInfo"/> object</returns>
+    /// <exception cref="PassageException"></exception>
+    public async Task<UserInfo> CreateUser(CreateUserRequest createUserRequest, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var client = new PassageClient(GetHttpClient());
+            var result = await client.CreateUserAsync(createUserRequest, _appId, cancellationToken);
+            return result.User;
+        }
+        catch (ApiException ex)
+        {
+            throw new PassageException("Cannot create User", ex);
+        }
+        catch (PassageException)
+        {
+            throw;
+        }
+        catch (Exception ex)
+        {
+            throw new PassageException("Cannot create User", ex);
+        }
+    }
+
+    /// <summary>
+    /// Delete a user.
+    /// </summary>
+    /// <param name="userId">User Id</param>
+    /// <param name="cancellationToken"></param>
+    /// <exception cref="PassageException"></exception>
+    public async Task DeleteUser(string userId, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var client = new PassageClient(GetHttpClient());
+            await client.DeleteUserAsync(_appId, userId, cancellationToken);
+            
+        }
+        catch (ApiException ex)
+        {
+            throw new PassageException("Cannot delete User", ex);
+        }
+        catch (PassageException)
+        {
+            throw;
+        }
+        catch (Exception ex)
+        {
+            throw new PassageException("Cannot delete User", ex);
+        }
+    }
+    
+
+    /// <summary>
+    /// Update a User
+    /// </summary>
+    /// <param name="userId">User Id</param>
+    /// <param name="updateUserRequest">Payload to update the user</param>
+    /// <param name="cancellationToken"></param>
+    /// <returns>A Passage <see cref="UserInfo"/> object</returns>
+    /// <exception cref="PassageException"></exception>
+    public async Task<UserInfo> UpdateUser(string userId, UpdateUserRequest updateUserRequest, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var client = new PassageClient(GetHttpClient());
+            var result = await client.UpdateUserAsync(updateUserRequest, _appId, userId, cancellationToken);
+            return result.User;
+
+        }
+        catch (ApiException ex)
+        {
+            throw new PassageException("Cannot update User", ex);
+        }
+        catch (PassageException)
+        {
+            throw;
+        }
+        catch (Exception ex)
+        {
+            throw new PassageException("Cannot update User", ex);
+        }
+    }
+    
+    private HttpClient GetHttpClient()
+    {
+        if (string.IsNullOrEmpty(_apiKey))
+        {
+            throw new PassageException("A Passage ApiKey is required. Please include {ApiKey: YOUR_API_KEY}.");
+        }
+        
+        var httpClient = new HttpClient();
+        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
+        httpClient.DefaultRequestHeaders.Add("Passage-Version", Assembly.GetExecutingAssembly().GetName().Version.ToString());
+        
+        return httpClient;
+    }
+    
     private static string GetKidFromJwtToken(string token)
     {
         var handler = new JwtSecurityTokenHandler();

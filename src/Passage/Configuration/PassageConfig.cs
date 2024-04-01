@@ -13,7 +13,7 @@ public class PassageConfig
     /// <summary>
     /// API key for access Passage from your application
     /// </summary>
-    public string AppKey { get; set; }
+    public string ApiKey { get; set; }
 
     /// <summary>
     /// Represents the authentication strategy for Passage.
