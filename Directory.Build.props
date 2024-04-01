@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <LangVersion>latest</LangVersion>
-        <VersionPrefix>0.1.0b</VersionPrefix>
+        <VersionPrefix>0.1.1-beta</VersionPrefix>
         <TargetFramework>netstandard2.1</TargetFramework>
         <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)assets/Passage.snk</AssemblyOriginatorKeyFile>
         <SignAssembly>true</SignAssembly>

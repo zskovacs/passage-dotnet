@@ -18,6 +18,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <None Include="../../assets/icon.png" Pack="true" Visible="false" PackagePath="/" />
+        <None Include="../../README.md" Pack="true" Visible="false" PackagePath="/" />
+    </ItemGroup>
+    
+    <ItemGroup>
       <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.5.0" />
       <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.0" />
     </ItemGroup>
