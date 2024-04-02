@@ -1,7 +1,6 @@
 ﻿// Global using directives
 
 global using Microsoft.IdentityModel.Tokens;
-global using Newtonsoft.Json;
 global using Passage.Configuration;
 global using Passage.Exceptions;
 global using Passage.OpenApi;
