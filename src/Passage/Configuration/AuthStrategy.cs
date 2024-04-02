@@ -5,6 +5,13 @@
 /// </summary>
 public enum AuthStrategy
 {
-    COOKIE,
-    HEADER
+    /// <summary>
+    /// Represents the authentication strategy of using cookies for authentication.
+    /// </summary>
+    Cookie,
+
+    /// <summary>
+    /// Represents the authentication strategy of using local storage/headers for Passage.
+    /// </summary>
+    Header
 }

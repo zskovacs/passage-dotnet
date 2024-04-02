@@ -9,13 +9,39 @@
 
 This dotnet SDK allows for verification of server-side authentication for applications using [Passage](https://passage.id)
 
+## 💾 Installation
 Install this package using nuget.
 
 ```dotnetcli
 dotnet add pacakge Passage.NET
 ```
 
-## Validate JWT
+## 💉 Dependency injection
+If you want to integrate with HttpClientFactory and Microsoft.Extensions.DependencyInjection
+```dotnetcli
+dotnet add pacakge Passage.Net.Extensions.DependencyInjection
+```
+Usage:
+```csharp
+//...
+builder.Services.AddPassage(options =>
+{
+    options.AppId = "YOUR_APP_ID";
+    options.ApiKey = "YOUR_API_KEY";
+});
+//...
+var app = builder.Build();
+//...
+app.MapGet("/getapp", async (IPassage passage) =>
+{
+    var appinfo = await passage.GetApp();
+    return appinfo;
+})
+```
+
+## 📒 Usage
+
+### Validate JWT
 You need to provide Passage with your App ID in order to verify the JWTs.
 ```csharp
 var config = new PassageConfig()
@@ -28,7 +54,7 @@ var passage = new Passage(config);
 var subject = await passage.ValidateToken("JWT_TO_VALIDATE");
 ```
 
-## Retrieve App Info
+### Retrieve App Info
 To retrieve information about an app, you should use the passage.GetApp() function.
 ```csharp
 var config = new PassageConfig()
@@ -42,7 +68,7 @@ var passage = new Passage(config);
 var passageApp = await passage.GetApp();
 ```
 
-## Retrieve User Information By Identifier
+### Retrieve User Information By Identifier
 To retrieve information about a user, you should use the passage.GetUserByIdentifier("your@email.cc") function.
 ```csharp
 var config = new PassageConfig()
@@ -56,7 +82,7 @@ var passage = new Passage(config);
 var passageUser = await passage.GetUserByIdentifier("user@email.cc");
 ```
 
-## Retrieve User Information By User Id
+### Retrieve User Information By User Id
 To retrieve information about a user, you should use the passage.GetUser("USER_ID") function.
 ```csharp
 var config = new PassageConfig()
@@ -70,7 +96,7 @@ var passage = new Passage(config);
 var passageUser = await passage.GetUser("USER_ID");
 ```
 
-## Create a User
+### Create a User
 You can also create a Passage user by providing an email or phone (phone number must be a valid E164 phone number).
 ```csharp
 var config = new PassageConfig()
@@ -94,7 +120,7 @@ var createRequest = new CreateUserRequest()
 var passageUser = await passage.CreateUser(createRequest);
 ```
 
-## Update a User
+### Update a User
 You can update a user attributes
 ```csharp
 var config = new PassageConfig()
@@ -118,7 +144,7 @@ var updateRequest = new UpdateUserRequest()
 var passageUser = await passage.UpdateUser("USER_ID",updateRequest);
 ```
 
-## Delete a User
+### Delete a User
 To delete a Passage user, you will need to provide the userID, and corresponding app credentials.
 ```csharp
 var config = new PassageConfig()
