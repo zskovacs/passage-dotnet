@@ -9,7 +9,7 @@ public class Passage : IPassage
     private readonly string _apiKey = string.Empty;
     private readonly AuthStrategy _authStrategy;
     private JsonWebKeySet _jwks;
-    private HttpClient _httpClient;
+    protected HttpClient _httpClient;
 
     /// <summary>
     /// Passage class constructor

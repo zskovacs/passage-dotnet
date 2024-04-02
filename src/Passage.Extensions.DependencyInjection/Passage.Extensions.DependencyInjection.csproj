@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <PackageId>Passage.NET</PackageId>
+        <PackageId>Passage.Net.Extensions.DependencyInjection</PackageId>
         <Authors>Zsolt Kovacs</Authors>
         <Description>Passage Authentication Middleware</Description>
         <PackageTags>passage;auth;passkey;passwordless;asp.net</PackageTags>
         <PackageIcon>icon.png</PackageIcon>
-        <PackageDescription>Passage Authentication Middleware</PackageDescription>
+        <PackageDescription>integrate Passage with HttpClientFactory and Microsoft.Extensions.DependencyInjection</PackageDescription>
         <PackageProjectUrl>https://passage.id/</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/zskovacs/passage-dotnet.git</RepositoryUrl>
@@ -14,18 +14,21 @@
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <Copyright>Copyright © 2024</Copyright>
-        <AssemblyName>Passage</AssemblyName>
+        <AssemblyName>Passage.Extensions.DependencyInjection</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="../../assets/icon.png" Pack="true" Visible="false" PackagePath="/" />
         <None Include="../../README.md" Pack="true" Visible="false" PackagePath="/" />
-    </ItemGroup>
-    
-    <ItemGroup>
-      <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.5.0" />
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.0" />
+        <None Include="../../assets/icon.png" Pack="true" Visible="false" PackagePath="/" />
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Http" Version="2.1.0" />
+        <PackageReference Include="StyleCop.Analyzers" Version="1.*" PrivateAssets="All" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Passage\Passage.csproj" />
+    </ItemGroup>
+    
 </Project>

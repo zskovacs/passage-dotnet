@@ -4,26 +4,26 @@ public abstract class Errors
 {
     public abstract class Token
     {
-        public const string CannotDownloadJwks = "Cannot download JWKS";
-        public const string VerificationFailed = "JWT verification failed";
+        public const string CannotDownloadJwks = "Unable to download JWKS due to a network error or incorrect endpoint.";
+        public const string VerificationFailed = "JWT verification has failed because of incorrect signature or payload data.";
     }
     public abstract class User
     {
-        public const string CannotGet = "Cannot get User information";
-        public const string IdentifierNotFound = "Could not find user with that identifier.";
-        public const string CannotCreate = "Cannot create User";
-        public const string CannotUpdate = "Cannot update User";
-        public const string CannotDelete = "Cannot delete User";
+        public const string CannotGet = "Unable to retrieve User information";
+        public const string IdentifierNotFound = "The user with the specified identifier could not be found in the system.";
+        public const string CannotCreate = "User creation has failed due to validation errors or a system error.";
+        public const string CannotUpdate = "User data updating process has failed due to validation errors or a system error.";
+        public const string CannotDelete = "The system couldn't proceed with User deletion due to a system error.";
     }
 
     public abstract class App
     {
-        public const string CannotGet = "Cannot get APP information";
+        public const string CannotGet = "Getting App information is unsuccessful due to an issue with the Application service.";
     }
     
     public abstract class Config
     {
-        public const string MissingAppId = "A Passage AppId is required. Please include {AppID: YOUR_APP_ID}.";
-        public const string MissingApiKey = "A Passage ApiKey is required. Please include {ApiKey: YOUR_API_KEY}.";
+        public const string MissingAppId = "Your configuration is missing an Application ID (AppID). Include it in the following format: {AppID: YOUR_APP_ID}.";
+        public const string MissingApiKey = "Your configuration is missing an ApiKey. Please include it in the following format: {ApiKey: YOUR_API_KEY}.";
     }
 }
