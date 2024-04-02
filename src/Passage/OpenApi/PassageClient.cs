@@ -2258,7 +2258,7 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class PasskeysAuthMethod
     {
-        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Enabled { get; set; } = true;
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -2301,16 +2301,16 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class OtpAuthMethod
     {
-        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// Maximum time (IN SECONDS) for the auth to expire.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("ttl", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("ttl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Ttl { get; set; } = 300;
 
-        [Newtonsoft.Json.JsonProperty("ttl_display_unit", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("ttl_display_unit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TtlDisplayUnit Ttl_display_unit { get; set; }
 
@@ -2328,16 +2328,16 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class MagicLinkAuthMethod
     {
-        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// Maximum time (IN SECONDS) for the auth to expire.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("ttl", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("ttl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Ttl { get; set; } = 300;
 
-        [Newtonsoft.Json.JsonProperty("ttl_display_unit", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("ttl_display_unit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TtlDisplayUnit Ttl_display_unit { get; set; }
 
@@ -2358,13 +2358,13 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class AuthMethods
     {
-        [Newtonsoft.Json.JsonProperty("passkeys", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("passkeys", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public PasskeysAuthMethod Passkeys { get; set; } = new PasskeysAuthMethod();
 
-        [Newtonsoft.Json.JsonProperty("otp", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("otp", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public OtpAuthMethod Otp { get; set; } = new OtpAuthMethod();
 
-        [Newtonsoft.Json.JsonProperty("magic_link", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("magic_link", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public MagicLinkAuthMethod Magic_link { get; set; } = new MagicLinkAuthMethod();
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -2381,19 +2381,19 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class LayoutConfig
     {
-        [Newtonsoft.Json.JsonProperty("h", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("h", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int H { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("w", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("w", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int W { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("x", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("x", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int X { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("y", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("y", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Y { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -2410,10 +2410,10 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class Layouts
     {
-        [Newtonsoft.Json.JsonProperty("profile", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("profile", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<LayoutConfig> Profile { get; set; } = new System.Collections.ObjectModel.Collection<LayoutConfig>();
 
-        [Newtonsoft.Json.JsonProperty("registration", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("registration", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<LayoutConfig> Registration { get; set; } = new System.Collections.ObjectModel.Collection<LayoutConfig>();
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -2454,22 +2454,22 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UserMetadataField
     {
-        [Newtonsoft.Json.JsonProperty("field_name", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("field_name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field_name { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("friendly_name", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("friendly_name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Friendly_name { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("profile", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("profile", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Profile { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("registration", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("registration", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Registration { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UserMetadataFieldType Type { get; set; }
 
@@ -2694,63 +2694,63 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class AppInfo
     {
-        [Newtonsoft.Json.JsonProperty("additional_auth_origins", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("additional_auth_origins", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> Additional_auth_origins { get; set; } = new System.Collections.ObjectModel.Collection<string>();
 
         /// <summary>
         /// The valid URLs where users can be redirected after authentication.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("allowed_callback_urls", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("allowed_callback_urls", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> Allowed_callback_urls { get; set; } = new System.Collections.ObjectModel.Collection<string>();
 
-        [Newtonsoft.Json.JsonProperty("allowed_identifier", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("allowed_identifier", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Allowed_identifier { get; set; }
 
         /// <summary>
         /// The valid URLs where users can be redirected after logging out.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("allowed_logout_urls", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("allowed_logout_urls", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> Allowed_logout_urls { get; set; } = new System.Collections.ObjectModel.Collection<string>();
 
         /// <summary>
         /// A route within your application that redirects to the Authorization URL endpoint.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("application_login_uri", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("application_login_uri", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Application_login_uri { get; set; }
 
         /// <summary>
         /// Deprecated Property. Please refer to `auth_methods` to view settings for individual authentication methods.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("auth_fallback_method", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("auth_fallback_method", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
         public string Auth_fallback_method { get; set; }
 
         /// <summary>
         /// Deprecated Property. Please refer to `auth_methods` to view settings for individual authentication methods.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("auth_fallback_method_ttl", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("auth_fallback_method_ttl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
         public int Auth_fallback_method_ttl { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("auth_methods", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("auth_methods", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public AuthMethods Auth_methods { get; set; } = new AuthMethods();
 
-        [Newtonsoft.Json.JsonProperty("auth_origin", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("auth_origin", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Auth_origin { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Created_at { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("default_language", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("default_language", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Default_language { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("layouts", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("layouts", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Layouts Layouts { get; set; } = new Layouts();
 
-        [Newtonsoft.Json.JsonProperty("login_url", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("login_url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Login_url { get; set; }
 
         [Newtonsoft.Json.JsonProperty("light_logo_url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2759,58 +2759,58 @@ namespace Passage.OpenApi
         [Newtonsoft.Json.JsonProperty("dark_logo_url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Dark_logo_url { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
 
         /// <summary>
         /// whether or not the app's login page hosted by passage
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("hosted", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("hosted", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Hosted { get; set; }
 
         /// <summary>
         /// the subdomain of the app's hosted login page
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("hosted_subdomain", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("hosted_subdomain", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Hosted_subdomain { get; set; }
 
         [Newtonsoft.Json.JsonProperty("id_token_lifetime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Id_token_lifetime { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("passage_branding", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("passage_branding", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Passage_branding { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("profile_management", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("profile_management", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Profile_management { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("public_signup", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("public_signup", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Public_signup { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("redirect_url", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("redirect_url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Redirect_url { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("refresh_absolute_lifetime", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("refresh_absolute_lifetime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Refresh_absolute_lifetime { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("refresh_enabled", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("refresh_enabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Refresh_enabled { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("refresh_inactivity_lifetime", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("refresh_inactivity_lifetime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Refresh_inactivity_lifetime { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("require_email_verification", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("require_email_verification", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Require_email_verification { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("require_identifier_verification", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("require_identifier_verification", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Require_identifier_verification { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("required_identifier", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("required_identifier", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Required_identifier { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("role", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("role", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Role { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("rsa_public_key", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("rsa_public_key", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Rsa_public_key { get; set; }
 
         /// <summary>
@@ -2819,23 +2819,23 @@ namespace Passage.OpenApi
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Secret { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("session_timeout_length", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("session_timeout_length", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Session_timeout_length { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AppInfoType Type { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("user_metadata_schema", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("user_metadata_schema", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserMetadataField> User_metadata_schema { get; set; } = new System.Collections.ObjectModel.Collection<UserMetadataField>();
 
-        [Newtonsoft.Json.JsonProperty("technologies", Required = Newtonsoft.Json.Required.Always, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [Newtonsoft.Json.JsonProperty("technologies", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<Technologies> Technologies { get; set; } = new System.Collections.ObjectModel.Collection<Technologies>();
 
-        [Newtonsoft.Json.JsonProperty("element_customization", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("element_customization", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ElementCustomization Element_customization { get; set; } = new ElementCustomization();
 
-        [Newtonsoft.Json.JsonProperty("element_customization_dark", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("element_customization_dark", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ElementCustomization Element_customization_dark { get; set; } = new ElementCustomization();
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -2852,7 +2852,7 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class AppResponse
     {
-        [Newtonsoft.Json.JsonProperty("app", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("app", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public AppInfo App { get; set; } = new AppInfo();
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -2869,11 +2869,11 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class _400Error
     {
-        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public _400ErrorCode Code { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Error { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -2890,11 +2890,11 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class _401Error
     {
-        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public _401ErrorCode Code { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Error { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -2911,11 +2911,11 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class _500Error
     {
-        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public _500ErrorCode Code { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Error { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -2932,11 +2932,11 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class _404Error
     {
-        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public _404ErrorCode Code { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Error { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -2953,11 +2953,11 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class _403Error
     {
-        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public _403ErrorCode Code { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Error { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -2974,7 +2974,7 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class Link
     {
-        [Newtonsoft.Json.JsonProperty("href", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("href", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Href { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -2991,19 +2991,19 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class PaginatedLinks
     {
-        [Newtonsoft.Json.JsonProperty("first", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("first", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Link First { get; set; } = new Link();
 
-        [Newtonsoft.Json.JsonProperty("last", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("last", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Link Last { get; set; } = new Link();
 
-        [Newtonsoft.Json.JsonProperty("next", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("next", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Link Next { get; set; } = new Link();
 
-        [Newtonsoft.Json.JsonProperty("previous", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("previous", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Link Previous { get; set; } = new Link();
 
-        [Newtonsoft.Json.JsonProperty("self", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("self", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Link Self { get; set; } = new Link();
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3032,7 +3032,7 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class ListDevicesResponse
     {
-        [Newtonsoft.Json.JsonProperty("devices", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("devices", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<WebAuthnDevices> Devices { get; set; } = new System.Collections.ObjectModel.Collection<WebAuthnDevices>();
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3052,7 +3052,7 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class AuthenticateVerifyRequest
     {
-        [Newtonsoft.Json.JsonProperty("nonce", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("nonce", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Nonce { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3084,38 +3084,38 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class ListPaginatedUsersItem
     {
-        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Created_at { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Email { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("email_verified", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("email_verified", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Email_verified { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("last_login_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("last_login_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Last_login_at { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("login_count", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("login_count", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Login_count { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Phone { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("phone_verified", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("phone_verified", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Phone_verified { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UserStatus Status { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("updated_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("updated_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Updated_at { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("user_metadata", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("user_metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object User_metadata { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3132,28 +3132,28 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class ListPaginatedUsersResponse
     {
-        [Newtonsoft.Json.JsonProperty("_links", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("_links", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public PaginatedLinks _links { get; set; } = new PaginatedLinks();
 
         /// <summary>
         /// time anchor (Unix timestamp) --&gt; all users returned created before this timestamp
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("created_before", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("created_before", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long Created_before { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Limit { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("page", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("page", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Page { get; set; }
 
         /// <summary>
         /// total number of users for a particular query
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("total_users", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("total_users", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long Total_users { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("users", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("users", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ListPaginatedUsersItem> Users { get; set; } = new System.Collections.ObjectModel.Collection<ListPaginatedUsersItem>();
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3199,26 +3199,26 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UserRecentEvent
     {
-        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Created_at { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("completed_at", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("completed_at", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset? Completed_at { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("ip_addr", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("ip_addr", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Ip_addr { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UserEventStatus Status { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Type { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("user_agent", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("user_agent", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string User_agent { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3238,19 +3238,19 @@ namespace Passage.OpenApi
         /// <summary>
         /// The external ID of the Social Connection.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("provider_id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("provider_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Provider_id { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Created_at { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("last_login_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("last_login_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Last_login_at { get; set; }
 
         /// <summary>
         /// The email of connected social user.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("provider_identifier", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("provider_identifier", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Provider_identifier { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3270,19 +3270,19 @@ namespace Passage.OpenApi
         /// <summary>
         /// The external ID of the Social Connection.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("provider_id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("provider_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Provider_id { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Created_at { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("last_login_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("last_login_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Last_login_at { get; set; }
 
         /// <summary>
         /// The email of connected social user.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("provider_identifier", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("provider_identifier", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Provider_identifier { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3302,19 +3302,19 @@ namespace Passage.OpenApi
         /// <summary>
         /// The external ID of the Social Connection.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("provider_id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("provider_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Provider_id { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Created_at { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("last_login_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("last_login_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Last_login_at { get; set; }
 
         /// <summary>
         /// The email of connected social user.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("provider_identifier", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("provider_identifier", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Provider_identifier { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3377,10 +3377,10 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class WebAuthnIcons
     {
-        [Newtonsoft.Json.JsonProperty("light", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("light", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Light { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("dark", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("dark", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Dark { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3400,50 +3400,50 @@ namespace Passage.OpenApi
         /// <summary>
         /// The first time this webAuthn device was used to authenticate the user
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Created_at { get; set; }
 
         /// <summary>
         /// The CredID for this webAuthn device
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("cred_id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("cred_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Cred_id { get; set; }
 
         /// <summary>
         /// The friendly name for the webAuthn device used to authenticate
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("friendly_name", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("friendly_name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Friendly_name { get; set; }
 
         /// <summary>
         /// The ID of the webAuthn device used for authentication
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
 
         /// <summary>
         /// The last time this webAuthn device was used to authenticate the user
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("last_login_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("last_login_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Last_login_at { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public WebAuthnType Type { get; set; }
 
         /// <summary>
         /// The last time this webAuthn device was updated
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("updated_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("updated_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Updated_at { get; set; }
 
         /// <summary>
         /// How many times this webAuthn device has been used to authenticate the user
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("usage_count", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("usage_count", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Usage_count { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("icons", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("icons", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public WebAuthnIcons Icons { get; set; } = new WebAuthnIcons();
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3460,56 +3460,56 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UserInfo
     {
-        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Created_at { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Email { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("email_verified", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("email_verified", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Email_verified { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("last_login_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("last_login_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Last_login_at { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("login_count", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("login_count", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Login_count { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Phone { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("phone_verified", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("phone_verified", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Phone_verified { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("recent_events", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("recent_events", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserRecentEvent> Recent_events { get; set; } = new System.Collections.ObjectModel.Collection<UserRecentEvent>();
 
-        [Newtonsoft.Json.JsonProperty("social_connections", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("social_connections", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserSocialConnections Social_connections { get; set; } = new UserSocialConnections();
 
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UserStatus Status { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("updated_at", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("updated_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTimeOffset Updated_at { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("user_metadata", Required = Newtonsoft.Json.Required.AllowNull)]
+        [Newtonsoft.Json.JsonProperty("user_metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object User_metadata { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("webauthn", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("webauthn", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Webauthn { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("webauthn_devices", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("webauthn_devices", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<WebAuthnDevices> Webauthn_devices { get; set; } = new System.Collections.ObjectModel.Collection<WebAuthnDevices>();
 
         /// <summary>
         /// List of credential types that have been used for authentication
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("webauthn_types", Required = Newtonsoft.Json.Required.Always, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [Newtonsoft.Json.JsonProperty("webauthn_types", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<WebAuthnType> Webauthn_types { get; set; } = new System.Collections.ObjectModel.Collection<WebAuthnType>();
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3526,7 +3526,7 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UserResponse
     {
-        [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserInfo User { get; set; } = new UserInfo();
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3590,11 +3590,11 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class CreateMagicLinkRequest
     {
-        [Newtonsoft.Json.JsonProperty("channel", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("channel", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public MagicLinkChannel Channel { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Email { get; set; }
 
         /// <summary>
@@ -3603,26 +3603,26 @@ namespace Passage.OpenApi
         [Newtonsoft.Json.JsonProperty("language", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Language { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("magic_link_path", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("magic_link_path", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Magic_link_path { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Phone { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("redirect_url", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("redirect_url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Redirect_url { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("send", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("send", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Send { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("ttl", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("ttl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Ttl { get; set; }
 
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public MagicLinkType Type { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("user_id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("user_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string User_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3639,35 +3639,35 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class MagicLink
     {
-        [Newtonsoft.Json.JsonProperty("activated", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("activated", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Activated { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("app_id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("app_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string App_id { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Identifier { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("redirect_url", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("redirect_url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Redirect_url { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Secret { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("ttl", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("ttl", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Ttl { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public MagicLinkType Type { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("user_id", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("user_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string User_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;
@@ -3684,7 +3684,7 @@ namespace Passage.OpenApi
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.0.7.0 (NJsonSchema v11.0.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class MagicLinkResponse
     {
-        [Newtonsoft.Json.JsonProperty("magic_link", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("magic_link", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public MagicLink Magic_link { get; set; } = new MagicLink();
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties;

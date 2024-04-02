@@ -9,6 +9,7 @@ public class Passage : IPassage
     private readonly string _apiKey = string.Empty;
     private readonly AuthStrategy _authStrategy;
     private JsonWebKeySet _jwks;
+    private HttpClient _httpClient;
 
     /// <summary>
     /// Passage class constructor
@@ -19,17 +20,30 @@ public class Passage : IPassage
     {
         if (string.IsNullOrEmpty(config?.AppId))
         {
-            throw new PassageException("A Passage appID is required. Please include {AppID: YOUR_APP_ID}.");
+            throw new PassageException(Errors.Config.MissingAppId);
         }
+
         _appId = config.AppId;
-        
-        if (!string.IsNullOrEmpty(config?.ApiKey)) {
+
+        if (!string.IsNullOrEmpty(config?.ApiKey))
+        {
             _apiKey = config.ApiKey;
         }
 
         _authStrategy = config.AuthStrategy;
     }
-    
+
+    /// <summary>
+    /// Passage class constructor
+    /// </summary>
+    /// <param name="config">Configuration for Passage</param>
+    /// <param name="httpClient">Http Client for overload</param>
+    /// <exception cref="PassageException"></exception>
+    public Passage(PassageConfig config, HttpClient httpClient) : this(config)
+    {
+        _httpClient = httpClient;
+    }
+
     /// <summary>
     /// Determine if the provided token is valid when compared with its respective public key.
     /// </summary>
@@ -39,7 +53,7 @@ public class Passage : IPassage
     public async Task<string> ValidateToken(string token)
     {
         _jwks ??= await DownloadJWKS();
-        
+
         var kid = GetKidFromJwtToken(token);
         var key = _jwks.GetSigningKeys().SingleOrDefault(k => k.KeyId == kid);
 
@@ -53,7 +67,7 @@ public class Passage : IPassage
             ValidateLifetime = true,
             IssuerSigningKeys = new[] { key }
         };
-        
+
         try
         {
             var result = await tokenHandler.ValidateTokenAsync(token, validationParameters);
@@ -61,15 +75,15 @@ public class Passage : IPassage
         }
         catch (Exception ex)
         {
-            throw new PassageException("JWT verification failed", ex);
+            throw new PassageException(Errors.Token.VerificationFailed, ex);
         }
     }
-    
+
     /// <summary>
     /// Get information about an application.
     /// </summary>
     /// <param name="cancellationToken"></param>
-    /// <returns>A Passage <see cref="App"/> object</returns>
+    /// <returns>A Passage <see cref="Errors.App"/> object</returns>
     /// <exception cref="PassageException"></exception>
     public async Task<AppInfo> GetApp(CancellationToken cancellationToken = default)
     {
@@ -81,7 +95,7 @@ public class Passage : IPassage
         }
         catch (ApiException ex)
         {
-            throw new PassageException("Cannot get APP information", ex);
+            throw new PassageException(Errors.App.CannotGet, ex);
         }
         catch (PassageException)
         {
@@ -89,10 +103,10 @@ public class Passage : IPassage
         }
         catch (Exception ex)
         {
-            throw new PassageException("Cannot create User information", ex);
+            throw new PassageException(Errors.App.CannotGet, ex);
         }
     }
-    
+
     /// <summary>
     /// Get user information, if the user exists. This endpoint can be used to determine whether a user has an existing account and if they should login or register.
     /// </summary>
@@ -110,7 +124,7 @@ public class Passage : IPassage
         }
         catch (ApiException ex)
         {
-            throw new PassageException("Cannot get User information", ex);
+            throw new PassageException(Errors.User.CannotGet, ex);
         }
         catch (PassageException)
         {
@@ -118,10 +132,10 @@ public class Passage : IPassage
         }
         catch (Exception ex)
         {
-            throw new PassageException("Cannot create User information", ex);
+            throw new PassageException(Errors.User.CannotGet, ex);
         }
     }
-    
+
     /// <summary>
     /// Get user information, if the user exists. This endpoint can be used to determine whether a user has an existing account and if they should login or register.
     /// </summary>
@@ -153,13 +167,12 @@ public class Passage : IPassage
             {
                 return await GetUser(result.Users.First().Id, cancellationToken);
             }
-            
-            throw new PassageException("Could not find user with that identifier.");
-            
+
+            throw new PassageException(Errors.User.IdentifierNotFound);
         }
         catch (ApiException ex)
         {
-            throw new PassageException("Cannot get User information", ex);
+            throw new PassageException(Errors.User.CannotGet, ex);
         }
         catch (PassageException)
         {
@@ -167,10 +180,10 @@ public class Passage : IPassage
         }
         catch (Exception ex)
         {
-            throw new PassageException("Cannot create User information", ex);
+            throw new PassageException(Errors.User.CannotGet, ex);
         }
     }
-    
+
 
     /// <summary>
     /// Create a user
@@ -189,7 +202,7 @@ public class Passage : IPassage
         }
         catch (ApiException ex)
         {
-            throw new PassageException("Cannot create User", ex);
+            throw new PassageException(Errors.User.CannotCreate, ex);
         }
         catch (PassageException)
         {
@@ -197,7 +210,7 @@ public class Passage : IPassage
         }
         catch (Exception ex)
         {
-            throw new PassageException("Cannot create User", ex);
+            throw new PassageException(Errors.User.CannotCreate, ex);
         }
     }
 
@@ -213,11 +226,10 @@ public class Passage : IPassage
         {
             var client = new PassageClient(GetHttpClient());
             await client.DeleteUserAsync(_appId, userId, cancellationToken);
-            
         }
         catch (ApiException ex)
         {
-            throw new PassageException("Cannot delete User", ex);
+            throw new PassageException(Errors.User.CannotDelete, ex);
         }
         catch (PassageException)
         {
@@ -225,10 +237,10 @@ public class Passage : IPassage
         }
         catch (Exception ex)
         {
-            throw new PassageException("Cannot delete User", ex);
+            throw new PassageException(Errors.User.CannotDelete, ex);
         }
     }
-    
+
 
     /// <summary>
     /// Update a User
@@ -245,11 +257,10 @@ public class Passage : IPassage
             var client = new PassageClient(GetHttpClient());
             var result = await client.UpdateUserAsync(updateUserRequest, _appId, userId, cancellationToken);
             return result.User;
-
         }
         catch (ApiException ex)
         {
-            throw new PassageException("Cannot update User", ex);
+            throw new PassageException(Errors.User.CannotUpdate, ex);
         }
         catch (PassageException)
         {
@@ -257,38 +268,43 @@ public class Passage : IPassage
         }
         catch (Exception ex)
         {
-            throw new PassageException("Cannot update User", ex);
+            throw new PassageException(Errors.User.CannotUpdate, ex);
         }
     }
-    
+
     private HttpClient GetHttpClient()
     {
-        if (string.IsNullOrEmpty(_apiKey))
+        if (_httpClient is not null)
         {
-            throw new PassageException("A Passage ApiKey is required. Please include {ApiKey: YOUR_API_KEY}.");
+            return _httpClient;
         }
         
-        var httpClient = new HttpClient();
-        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
-        httpClient.DefaultRequestHeaders.Add("Passage-Version", Assembly.GetExecutingAssembly().GetName().Version.ToString());
+        if (string.IsNullOrEmpty(_apiKey))
+        {
+            throw new PassageException(Errors.Config.MissingApiKey);
+        }
         
-        return httpClient;
+        _httpClient = new HttpClient();
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
+        _httpClient.DefaultRequestHeaders.Add("Passage-Version", Assembly.GetExecutingAssembly().GetName().Version.ToString());
+
+        return _httpClient;
     }
-    
+
     private static string GetKidFromJwtToken(string token)
     {
         var handler = new JwtSecurityTokenHandler();
         var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
         return jsonToken?.Header?.Kid;
     }
-    
+
     private async Task<JsonWebKeySet> DownloadJWKS()
     {
         using var httpClient = new HttpClient();
         var jwks = await httpClient.GetStringAsync($"https://auth.passage.id/v1/apps/{_appId}/.well-known/jwks.json");
 
         if (string.IsNullOrEmpty(jwks))
-            throw new PassageException("Cannot download JWKS");
+            throw new PassageException(Errors.Token.CannotDownloadJwks);
 
         return new JsonWebKeySet(jwks);
     }
