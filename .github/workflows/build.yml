@@ -42,7 +42,8 @@ jobs:
       - name: Pack
         if: ${{ success() && !github.base_ref }}
         run: |
-          dotnet pack src/Passage/Passage.csproj --no-build --verbosity normal -c Release -o artifacts/ 
+          dotnet pack src/Passage/Passage.csproj --no-build --verbosity normal -c Release -o artifacts/ && \
+          dotnet pack src/Passage.Extensions.DependencyInjection/Passage.Extensions.DependencyInjection.csproj --no-build --verbosity normal -c Release -o artifacts/ 
 
       - name: Push to NuGet
         if: ${{ success() && !github.base_ref }}
