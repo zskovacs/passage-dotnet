@@ -23,7 +23,7 @@ public static class ServiceCollectionExtensions
                 }
             });
 
-        services.TryAddTransient<IPassage>(resolver => resolver.GetRequiredService<InjectablePassageClient>());
+        services.TryAddSingleton<IPassage>(resolver => resolver.GetRequiredService<InjectablePassageClient>());
 
         return services.AddHttpClient<InjectablePassageClient>();
     }

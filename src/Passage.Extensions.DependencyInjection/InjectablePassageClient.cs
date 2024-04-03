@@ -14,8 +14,8 @@ public class InjectablePassageClient : Passage
     public InjectablePassageClient(IOptions<PassageConfig> options, HttpClient httpClient)
         : base(options.Value)
     {
-        this._httpClient = httpClient;
-        this._httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", options.Value.ApiKey);
-        this._httpClient.DefaultRequestHeaders.Add("Passage-Version", Assembly.GetExecutingAssembly().GetName().Version.ToString());
+        this.HttpClient = httpClient;
+        this.HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", options.Value.ApiKey);
+        this.HttpClient.DefaultRequestHeaders.Add("Passage-Version", Assembly.GetExecutingAssembly().GetName().Version.ToString());
     }
 }
