@@ -9,7 +9,7 @@ public class Passage : IPassage
     private readonly string _apiKey = string.Empty;
     private readonly AuthStrategy _authStrategy;
     private JsonWebKeySet _jwks;
-    protected HttpClient _httpClient;
+    protected HttpClient HttpClient;
 
     /// <summary>
     /// Passage class constructor
@@ -41,7 +41,7 @@ public class Passage : IPassage
     /// <exception cref="PassageException"></exception>
     public Passage(PassageConfig config, HttpClient httpClient) : this(config)
     {
-        _httpClient = httpClient;
+        HttpClient = httpClient;
     }
 
     /// <summary>
@@ -274,9 +274,9 @@ public class Passage : IPassage
 
     private HttpClient GetHttpClient()
     {
-        if (_httpClient is not null)
+        if (HttpClient is not null)
         {
-            return _httpClient;
+            return HttpClient;
         }
         
         if (string.IsNullOrEmpty(_apiKey))
@@ -284,11 +284,11 @@ public class Passage : IPassage
             throw new PassageException(Errors.Config.MissingApiKey);
         }
         
-        _httpClient = new HttpClient();
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
-        _httpClient.DefaultRequestHeaders.Add("Passage-Version", Assembly.GetExecutingAssembly().GetName().Version.ToString());
+        HttpClient = new HttpClient();
+        HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiKey);
+        HttpClient.DefaultRequestHeaders.Add("Passage-Version", Assembly.GetExecutingAssembly().GetName().Version.ToString());
 
-        return _httpClient;
+        return HttpClient;
     }
 
     private static string GetKidFromJwtToken(string token)
@@ -300,8 +300,7 @@ public class Passage : IPassage
 
     private async Task<JsonWebKeySet> DownloadJWKS()
     {
-        using var httpClient = new HttpClient();
-        var jwks = await httpClient.GetStringAsync($"https://auth.passage.id/v1/apps/{_appId}/.well-known/jwks.json");
+        var jwks = await GetHttpClient().GetStringAsync($"https://auth.passage.id/v1/apps/{_appId}/.well-known/jwks.json");
 
         if (string.IsNullOrEmpty(jwks))
             throw new PassageException(Errors.Token.CannotDownloadJwks);
