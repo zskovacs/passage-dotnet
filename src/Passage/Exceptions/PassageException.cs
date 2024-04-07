@@ -10,11 +10,6 @@ public class PassageException : Exception
     /// </summary>
     public int StatusCode { get; set; } = 500;
     
-    /// <summary>
-    /// Inner exception message
-    /// </summary>
-    public string Error { get; set; }
-
 
     /// <summary>
     /// Constructor
@@ -33,7 +28,6 @@ public class PassageException : Exception
     public PassageException(string message, ApiException ex) : base(message, ex)
     {
         StatusCode = ex.StatusCode;
-        Error = ex.Message;
     }
     
     /// <summary>
@@ -43,6 +37,6 @@ public class PassageException : Exception
     /// <param name="ex"></param>
     public PassageException(string message, Exception ex) : base(message, ex)
     {
-        Error = ex.Message;
+
     }
 }

@@ -49,84 +49,43 @@ public class PassageTests
         // Assert
         act.Should().NotThrow();
     }
-
-    #region GetApp
+    
     [Fact]
-    public async Task GetApp_Should_Return_AppInfo()
+    public void Initialization_Component_App_Initialized()
     {
         // Arrange
-        var passageConfig = new PassageConfig() { AppId = "xxx" };
-        var mockUrl = $"https://api.passage.id/v1/apps/{passageConfig.AppId}";
-        var mockHandler = new Mock<HttpMessageHandler>(MockBehavior.Strict);
-        mockHandler.SetupRequest(HttpMethod.Get, mockUrl).ReturnsResponse(HttpStatusCode.OK, "{}");
-
-        var httpClient = mockHandler.CreateClient();
-        var sut = new Passage(passageConfig, httpClient);
+        var config = new PassageConfig() { AppId = "xxx" };
 
         // Act
-        var result = await sut.GetApp();
-        
-        // Assert
-        mockHandler.VerifyRequest(HttpMethod.Get, mockUrl, Times.Once());
-        result.Should().NotBeNull();
-    }
+        var passage = new Passage(config);
 
+        // Assert
+        passage.App.Should().NotBeNull();
+    }
+    
     [Fact]
-    public async Task GetApp_Should_ThrowApiException()
+    public void Initialization_Component_User_Initialized()
     {
         // Arrange
-        var passageConfig = new PassageConfig() { AppId = "xxx" };
-        var mockUrl = $"https://api.passage.id/v1/apps/{passageConfig.AppId}";
-        var mockHandler = new Mock<HttpMessageHandler>(MockBehavior.Strict);
-        mockHandler.SetupRequest(HttpMethod.Get, mockUrl).ReturnsResponse(HttpStatusCode.NotFound, "{}");
-
-        var httpClient = mockHandler.CreateClient();
-        var sut = new Passage(passageConfig, httpClient);
+        var config = new PassageConfig() { AppId = "xxx" };
 
         // Act
-        var act = async () => await sut.GetApp();
-        
-        // Assert
-        await act.Should().ThrowAsync<PassageException>()
-            .Where(x => x.StatusCode == 404)
-            .WithMessage(Errors.App.CannotGet)
-            .WithInnerException(typeof(ApiException));
-    }
+        var passage = new Passage(config);
 
+        // Assert
+        passage.User.Should().NotBeNull();
+    }
+    
     [Fact]
-    public async Task GetApp_Should_ThrowException()
+    public void Initialization_Component_Session_Initialized()
     {
         // Arrange
-        var passageConfig = new PassageConfig() { AppId = "xxx" };
-        var mockUrl = $"https://api.passage.id/v1/apps/{passageConfig.AppId}";
-        var mockHandler = new Mock<HttpMessageHandler>(MockBehavior.Strict);
-        mockHandler.SetupRequest(HttpMethod.Get, mockUrl).ThrowsAsync(new Exception());
-
-        var httpClient = mockHandler.CreateClient();
-        var sut = new Passage(passageConfig, httpClient);
+        var config = new PassageConfig() { AppId = "xxx" };
 
         // Act
-        var act = async () => await sut.GetApp();
-        
-        // Assert
-        await act.Should().ThrowAsync<PassageException>()
-            .Where(x => x.StatusCode == 500)
-            .WithMessage(Errors.App.CannotGet)
-            .WithInnerException(typeof(Exception));
-    }
+        var passage = new Passage(config);
 
-    [Fact]
-    public async Task GetApp_MissingApiKey_Should_ThrowException()
-    {
-        // Arrange
-        var passageConfig = new PassageConfig() { AppId = "xxx" };
-        var sut = new Passage(passageConfig);
-
-        // Act
-        var act = async () => await sut.GetApp();
-        
         // Assert
-        await act.Should().ThrowAsync<PassageException>().WithMessage(Errors.Config.MissingApiKey);
+        passage.Session.Should().NotBeNull();
     }
-    #endregion
 }

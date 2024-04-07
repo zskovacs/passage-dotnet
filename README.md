@@ -34,7 +34,7 @@ var app = builder.Build();
 //...
 app.MapGet("/getapp", async (IPassage passage) =>
 {
-    var appinfo = await passage.GetApp();
+    var appinfo = await passage.App.Get();
     return appinfo;
 })
 ```
@@ -51,7 +51,20 @@ var config = new PassageConfig()
 
 var passage = new Passage(config);
 
-var subject = await passage.ValidateToken("JWT_TO_VALIDATE");
+var subject = await passage.Session.ValidateToken("JWT_TO_VALIDATE");
+```
+
+### Logout
+You can revoke refresh token from the given user
+```csharp
+var config = new PassageConfig()
+{
+    AppId = "YOUR_APP_ID"
+}
+
+var passage = new Passage(config);
+
+var subject = await passage.Session.RevokeRefreshToken("USER_ID");
 ```
 
 ### Retrieve App Info
@@ -65,7 +78,7 @@ var config = new PassageConfig()
 
 var passage = new Passage(config);
 
-var passageApp = await passage.GetApp();
+var passageApp = await passage.App.Get();
 ```
 
 ### Retrieve User Information By Identifier
@@ -79,7 +92,7 @@ var config = new PassageConfig()
 
 var passage = new Passage(config);
 
-var passageUser = await passage.GetUserByIdentifier("user@email.cc");
+var passageUser = await passage.User.GetByIdentifier("user@email.cc");
 ```
 
 ### Retrieve User Information By User Id
@@ -93,7 +106,7 @@ var config = new PassageConfig()
 
 var passage = new Passage(config);
 
-var passageUser = await passage.GetUser("USER_ID");
+var passageUser = await passage.User.Get("USER_ID");
 ```
 
 ### Create a User
@@ -117,7 +130,7 @@ var createRequest = new CreateUserRequest()
     }
 };
     
-var passageUser = await passage.CreateUser(createRequest);
+var passageUser = await passage.User.Create(createRequest);
 ```
 
 ### Update a User
@@ -141,7 +154,7 @@ var updateRequest = new UpdateUserRequest()
     }
 };
 
-var passageUser = await passage.UpdateUser("USER_ID",updateRequest);
+var passageUser = await passage.User.Update("USER_ID",updateRequest);
 ```
 
 ### Delete a User
@@ -155,5 +168,33 @@ var config = new PassageConfig()
 
 var passage = new Passage(config);
 
-await passage.DeleteUser("USER_ID");
+await passage.User.Delete("USER_ID");
+```
+
+### Activate a User
+You can activate a user manually
+```csharp
+var config = new PassageConfig()
+{
+    AppId = "YOUR_APP_ID",
+    ApiKey = "YOUR_API_KEY"
+}
+
+var passage = new Passage(config);
+
+var passageUser= await passage.User.Activate("USER_ID");
+```
+
+### Deactivate a User
+You can deactivate a user manually
+```csharp
+var config = new PassageConfig()
+{
+    AppId = "YOUR_APP_ID",
+    ApiKey = "YOUR_API_KEY"
+}
+
+var passage = new Passage(config);
+
+var passageUser= await passage.User.Deactivate("USER_ID");
 ```
