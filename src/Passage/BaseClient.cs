@@ -106,7 +106,6 @@ public abstract class BaseClient
     /// <summary>
     /// Calls the specified client action method on the Passage client.
     /// </summary>
-    /// <typeparam name="T">The return type of the client action method.</typeparam>
     /// <param name="clientAction">The client action method to be called.</param>
     /// <returns>A task representing the asynchronous client action.</returns>
     /// <exception cref="PassageException">Thrown when an error occurs during the client action.</exception>
