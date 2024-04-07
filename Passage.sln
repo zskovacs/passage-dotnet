@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passage.Tests", "test\Passa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passage.Extensions.DependencyInjection", "src\Passage.Extensions.DependencyInjection\Passage.Extensions.DependencyInjection.csproj", "{44CB8A86-727C-496A-BF61-630D35423374}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passage.Extensions.DependencyInjection.Tests", "test\Passage.Extensions.DependencyInjection.Tests\Passage.Extensions.DependencyInjection.Tests.csproj", "{2BED96DC-F154-4EA4-ABD4-2AFDC01E07BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,10 +38,15 @@ Global
 		{44CB8A86-727C-496A-BF61-630D35423374}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44CB8A86-727C-496A-BF61-630D35423374}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44CB8A86-727C-496A-BF61-630D35423374}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BED96DC-F154-4EA4-ABD4-2AFDC01E07BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BED96DC-F154-4EA4-ABD4-2AFDC01E07BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BED96DC-F154-4EA4-ABD4-2AFDC01E07BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BED96DC-F154-4EA4-ABD4-2AFDC01E07BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4B5A8468-EFA5-41C2-BB73-8C4FDF791BA7} = {7555300C-0BB0-4CF2-97EB-27C6C6896ADB}
 		{963CDA10-32EE-4CB6-9FEB-6BE5575EECC2} = {065F6F85-142A-4112-BB85-52B23C12EE62}
 		{44CB8A86-727C-496A-BF61-630D35423374} = {7555300C-0BB0-4CF2-97EB-27C6C6896ADB}
+		{2BED96DC-F154-4EA4-ABD4-2AFDC01E07BB} = {065F6F85-142A-4112-BB85-52B23C12EE62}
 	EndGlobalSection
 EndGlobal
