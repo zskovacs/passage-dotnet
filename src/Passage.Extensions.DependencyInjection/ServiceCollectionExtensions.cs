@@ -1,4 +1,6 @@
-﻿namespace Passage.Extensions.DependencyInjection;
+﻿using Passage.Contracts;
+
+namespace Passage.Extensions.DependencyInjection;
 
 /// <summary>
 /// Contains extension methods for the IServiceCollection interface to simplify the registration of Passage services.

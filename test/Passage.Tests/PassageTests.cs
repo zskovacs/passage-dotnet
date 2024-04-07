@@ -64,7 +64,7 @@ public class PassageTests
         var sut = new Passage(passageConfig, httpClient);
 
         // Act
-        var result = await sut.GetApp();
+        var result = await sut.App.Get();
         
         // Assert
         mockHandler.VerifyRequest(HttpMethod.Get, mockUrl, Times.Once());
@@ -84,12 +84,12 @@ public class PassageTests
         var sut = new Passage(passageConfig, httpClient);
 
         // Act
-        var act = async () => await sut.GetApp();
+        var act = async () => await sut.App.Get();
         
         // Assert
         await act.Should().ThrowAsync<PassageException>()
             .Where(x => x.StatusCode == 404)
-            .WithMessage(Errors.App.CannotGet)
+            .WithMessage(Errors.Client.ApiException)
             .WithInnerException(typeof(ApiException));
     }
 
@@ -106,12 +106,12 @@ public class PassageTests
         var sut = new Passage(passageConfig, httpClient);
 
         // Act
-        var act = async () => await sut.GetApp();
+        var act = async () => await sut.App.Get();
         
         // Assert
         await act.Should().ThrowAsync<PassageException>()
             .Where(x => x.StatusCode == 500)
-            .WithMessage(Errors.App.CannotGet)
+            .WithMessage(Errors.Client.UnexpectedError)
             .WithInnerException(typeof(Exception));
     }
 
@@ -123,7 +123,7 @@ public class PassageTests
         var sut = new Passage(passageConfig);
 
         // Act
-        var act = async () => await sut.GetApp();
+        var act = async () => await sut.App.Get();
         
         // Assert
         await act.Should().ThrowAsync<PassageException>().WithMessage(Errors.Config.MissingApiKey);

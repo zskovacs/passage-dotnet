@@ -8,18 +8,16 @@ public abstract class Errors
         public const string CannotDownloadJwks = "Unable to download JWKS due to a network error or incorrect endpoint.";
         public const string VerificationFailed = "JWT verification has failed because of incorrect signature or payload data.";
     }
+
+    public abstract class Client
+    {
+        public const string ApiException = "Unexpected exception occured during Api Call";
+        public const string UnexpectedError = "An unexpected error occurred.";
+    }
+    
     public abstract class User
     {
-        public const string CannotGet = "Unable to retrieve User information";
         public const string IdentifierNotFound = "The user with the specified identifier could not be found in the system.";
-        public const string CannotCreate = "User creation has failed due to validation errors or a system error.";
-        public const string CannotUpdate = "User data updating process has failed due to validation errors or a system error.";
-        public const string CannotDelete = "The system couldn't proceed with User deletion due to a system error.";
-    }
-
-    public abstract class App
-    {
-        public const string CannotGet = "Getting App information is unsuccessful due to an issue with the Application service.";
     }
     
     public abstract class Config

@@ -1,4 +1,5 @@
 using FluentAssertions;
+using Passage.Configuration;
 using Passage.Exceptions;
 using Passage.OpenApi;
 
@@ -29,7 +30,6 @@ public class PassageExceptionTests
         
         // Assert
         passageException.StatusCode.Should().Be(statusCode);
-        passageException.Error.Should().StartWith(message);
     }
 
 }

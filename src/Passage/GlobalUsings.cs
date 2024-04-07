@@ -2,6 +2,7 @@
 
 global using Microsoft.IdentityModel.Tokens;
 global using Passage.Configuration;
+global using Passage.Contracts;
 global using Passage.Exceptions;
 global using Passage.OpenApi;
 global using System;
