@@ -1,12 +1,12 @@
 ﻿// Global using directives
 
+global using Microsoft.IdentityModel.JsonWebTokens;
 global using Microsoft.IdentityModel.Tokens;
 global using Passage.Configuration;
 global using Passage.Contracts;
 global using Passage.Exceptions;
 global using Passage.OpenApi;
 global using System;
-global using System.IdentityModel.Tokens.Jwt;
 global using System.Linq;
 global using System.Net.Http;
 global using System.Net.Http.Headers;

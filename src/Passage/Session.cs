@@ -39,7 +39,7 @@ public class Session: BaseClient, ISession
         var kid = GetKidFromJwtToken(token);
         var key = _jwks.GetSigningKeys().SingleOrDefault(k => k.KeyId == kid);
 
-        var tokenHandler = new JwtSecurityTokenHandler();
+        var tokenHandler = new JsonWebTokenHandler();
         var validationParameters = new TokenValidationParameters
         {
             RequireSignedTokens = true,
@@ -53,7 +53,7 @@ public class Session: BaseClient, ISession
         try
         {
             var result = await tokenHandler.ValidateTokenAsync(token, validationParameters);
-            return result.ClaimsIdentity.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            return result.ClaimsIdentity.FindFirst(JwtRegisteredClaimNames.Sub)?.Value;
         }
         catch (Exception ex)
         {
@@ -76,9 +76,9 @@ public class Session: BaseClient, ISession
     
     private static string GetKidFromJwtToken(string token)
     {
-        var handler = new JwtSecurityTokenHandler();
-        var jsonToken = handler.ReadToken(token) as JwtSecurityToken;
-        return jsonToken?.Header?.Kid;
+        var handler = new JsonWebTokenHandler();
+        var jsonToken = handler.ReadToken(token) as JsonWebToken;
+        return jsonToken?.Kid;
     }
 
     private async Task<JsonWebKeySet> DownloadJWKS()
